@@ -1,6 +1,6 @@
 # Mpesa-UI-clone-JetpackCompose
 
-Let's Challenge ourselves and build this Mpesa Ui clone using Jetpack Compose and lets come with the "perfect" UI
+Let's Challenge ourselves and build this Mpesa App UI clone using Jetpack Compose and lets come with the "perfect" UI
 
 ## Contributing
 
@@ -14,7 +14,7 @@ To Contribute, follow the following steps
 
 * Push the changes to your repository
 
-* Create a Pull Request from your repository back to the original one
+* Create a Pull Request from your repository back to the dev branch
 
 
 [LICENSE](LICENSE)
