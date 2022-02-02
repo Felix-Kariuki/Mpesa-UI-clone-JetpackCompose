@@ -1,10 +1,12 @@
 package com.flexcode.mpesauiclone.models
 
-import android.graphics.Color
+
 import androidx.annotation.DrawableRes
+import androidx.compose.ui.graphics.Color
 
 data class IconsContent(
+    val id :Int = 0,
     val title: String,
-    val color: androidx.compose.ui.graphics.Color,
+    val color: Color,
     @DrawableRes val iconId: Int
     )

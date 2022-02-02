@@ -23,11 +23,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.graphics.toColor
 import com.flexcode.mpesauiclone.R
 import com.flexcode.mpesauiclone.models.BottomNavigationContent
 import com.flexcode.mpesauiclone.models.IconsContent
 import com.flexcode.mpesauiclone.models.StatementItem
 import com.flexcode.mpesauiclone.repository.StatementsRepository
+import com.flexcode.mpesauiclone.ui.theme.GREENDARK
+import com.flexcode.mpesauiclone.ui.theme.ORANGE
 
 @Preview(showBackground = true)
 @Composable
@@ -46,10 +49,10 @@ fun HomeScreen() {
             BalanceSection()
             IconsSection(
                 items = listOf(
-                    IconsContent("Send", Color.Blue, R.drawable.transfer),
-                    IconsContent("Pay", Color.Blue, R.drawable.pay),
-                    IconsContent("Withdraw", Color.Blue, R.drawable.withdrawal),
-                    IconsContent("Airtime", Color.Blue, R.drawable.airtime),
+                    IconsContent(0,"Send", Color.Blue, R.drawable.transfer),
+                    IconsContent(1,"Pay", Color.Blue, R.drawable.pay),
+                    IconsContent(2,"Withdraw", Color.Blue, R.drawable.withdrawal),
+                    IconsContent(3,"Airtime", Color.Blue, R.drawable.airtime),
                 )
             )
             ExpenditureSection()
@@ -182,9 +185,10 @@ fun IconsSection(
 @Composable
 fun IconsItems(
     item: IconsContent,
+    index: Int = 0,
     isSelected: Boolean = false,
     inActiveTextColor: Color = Color.DarkGray,
-    onItemClick: () -> Unit
+    onItemClick: () -> Unit,
 ) {
 
     Column(
@@ -197,13 +201,16 @@ fun IconsItems(
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
-                .clip(RoundedCornerShape(10.dp))
+                .clip(CircleShape)
                 .padding(10.dp)
         ) {
             Icon(
                 painter = painterResource(id = item.iconId),
                 contentDescription = item.title,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(32.dp)
+                    .clip(CircleShape)
+                    .background(GREENDARK)
+                    .padding(5.dp)
             )
 
         }
@@ -229,7 +236,7 @@ fun ExpenditureSection() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Yellow)
+                .background(ORANGE)
                 .clip(RoundedCornerShape(12.dp))
                 .padding(18.dp),
             verticalArrangement = Arrangement.SpaceBetween
@@ -374,7 +381,7 @@ fun SeeAll() {
             Text(
                 text = "SEE ALL",
                 style = TextStyle(
-                    color = Color.Green,
+                    color = GREENDARK,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.End
@@ -427,8 +434,8 @@ fun BottomNavigationMenu(
 fun BottomNavigationItem(
     item: BottomNavigationContent,
     isSelected: Boolean = false,
-    activeHighlightColor: Color = Color.Green,
-    activeTextColor: Color = Color.Green,
+    activeHighlightColor: Color = GREENDARK,
+    activeTextColor: Color = GREENDARK,
     inActiveTextColor: Color = Color.Gray,
     onItemClick: () -> Unit
 ) {
