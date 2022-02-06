@@ -248,15 +248,15 @@ fun ExpenditureSection() {
                 Text(
                     text = "TOTAL SPENT THIS WEEK",
                     style = TextStyle(
-                        color = Color.Black,
-                        fontSize = 16.sp,
+                        color = Color.Gray,
+                        fontSize = 15.sp,
                         fontWeight = FontWeight.Normal
                     )
                 )
                 Text(
-                    text = "1,700.00",
+                    text = "KSH 1,700.00",
                     style = TextStyle(
-                        color = Color.LightGray,
+                        color = Color.White,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Normal
                     )
@@ -270,7 +270,7 @@ fun ExpenditureSection() {
                 Text(
                     text = "DAILY AVERAGE",
                     style = TextStyle(
-                        color = Color.Black,
+                        color = Color.Gray,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Normal
                     )
@@ -278,7 +278,7 @@ fun ExpenditureSection() {
                 Text(
                     text = "KSH 700.00",
                     style = TextStyle(
-                        color = Color.LightGray,
+                        color = Color.White,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Normal
                     )
@@ -398,8 +398,8 @@ fun SeeAll() {
 fun BottomNavigationMenu(
     items: List<BottomNavigationContent>,
     modifier: Modifier = Modifier,
-    activeHighlightColor: Color = Color.Green,
-    activeTextColor: Color = Color.Green,
+    activeHighlightColor: Color = GREENDARK,
+    activeTextColor: Color = GREENDARK,
     inActiveTextColor: Color = Color.Gray,
     initialSelectedItemIndex: Int = 0
 ) {
