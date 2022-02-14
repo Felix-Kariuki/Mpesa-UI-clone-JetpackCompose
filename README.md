@@ -1,4 +1,4 @@
-# Mpesa-UI-clone-JetpackCompose
+## Mpesa App-UI-clone-JetpackCompose
 
 Let's Challenge ourselves and build this Mpesa App UI clone using Jetpack Compose and lets come with the "perfect" UI
 
