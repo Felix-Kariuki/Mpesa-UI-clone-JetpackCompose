@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.toColor
+import androidx.navigation.NavHostController
 import com.flexcode.mpesauiclone.R
 import com.flexcode.mpesauiclone.models.BottomNavigationContent
 import com.flexcode.mpesauiclone.models.IconsContent
@@ -34,7 +34,11 @@ import com.flexcode.mpesauiclone.ui.theme.ORANGE
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+
+    navController: NavHostController
+
+) {
     //Box consisting of everything acts as the "mother layout"
     Box(
         modifier = Modifier
@@ -207,7 +211,8 @@ fun IconsItems(
             Icon(
                 painter = painterResource(id = item.iconId),
                 contentDescription = item.title,
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier
+                    .size(32.dp)
                     .clip(CircleShape)
                     .background(GREENDARK)
                     .padding(5.dp)
@@ -414,6 +419,7 @@ fun BottomNavigationMenu(
             .fillMaxWidth()
             .background(color = Color.White)
     ) {
+
         items.forEachIndexed { index, item ->
             BottomNavigationItem(
                 item = item,
@@ -425,6 +431,7 @@ fun BottomNavigationMenu(
                 selectedItemIndex = index
             }
         }
+
 
     }
 
@@ -447,6 +454,7 @@ fun BottomNavigationItem(
             onItemClick()
         }
     ) {
+
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier

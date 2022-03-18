@@ -21,28 +21,35 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.flexcode.mpesauiclone.ui.HomeScreen
+import com.flexcode.mpesauiclone.ui.SplashScreen
 import com.flexcode.mpesauiclone.ui.theme.MpesaUiCloneTheme
 import kotlinx.coroutines.delay
 
 
 class MainActivity : ComponentActivity() {
+
+    lateinit var navController: NavHostController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Navigation()
-//            MpesaUiCloneTheme {
+            //Navigation()
+            MpesaUiCloneTheme {
 //                HomeScreen()
-//
-//            }
+                navController = rememberNavController()
+                SetUpNavHost(navHostController = navController)
+            }
+
         }
     }
 }
 
-@Composable
+/*@Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "splash_screen") {
@@ -51,40 +58,10 @@ fun Navigation() {
         }
         composable("main_screen") {
             Box(modifier = Modifier.fillMaxSize()) {
-                HomeScreen()
+                HomeScreen(navController = rememberNavController())
             }
         }
     }
-}
+}*/
 
-@Composable
-fun SplashScreen(navController: NavController) {
-    val scale = remember {
-        Animatable(0.5f)
-    }
-    LaunchedEffect(key1 = true) {
-        scale.animateTo(
-            targetValue = 0.5f,
-            animationSpec = tween(
-                durationMillis = 500,
-                easing = {
-                    OvershootInterpolator(2f).getInterpolation(it)
-                }
-            )
-        )
-        delay(3000L)
-        navController.navigate("main_screen")
-    }
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
-    ) {
 
-        Image(
-            painter = painterResource(id = R.drawable.mpesa),
-            contentDescription = "Logo",
-            modifier = Modifier.scale(scale.value)
-        )
-    }
-
-}
